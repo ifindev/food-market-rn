@@ -3,6 +3,7 @@ import {SafeAreaView, StyleSheet, useColorScheme, View} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import UserGreetings from '../components/UserGreetings';
+import Categories from '../components/Categories';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,6 +16,7 @@ function App(): React.JSX.Element {
     <SafeAreaView style={{...backgroundStyle, ...styles.safeAreaContainer}}>
       <View style={styles.container}>
         <UserGreetings />
+        <Categories />
       </View>
     </SafeAreaView>
   );
