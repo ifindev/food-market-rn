@@ -65,3 +65,7 @@ npm run android # or npm run ios
 ## 📜 License
 
 This project is licensed under the MIT License. See the [LICENSE](./LICENSE) file for details.
+
+## ©️ Copyright
+
+Muhammad Arifin - 2025
