@@ -8,11 +8,13 @@ type Props = TextInputProps & {
   error?: string;
 };
 
-export default function InputField({label, ...inputProps}: Props) {
+export default function InputField({label, error, ...inputProps}: Props) {
   return (
     <View style={styles.container}>
-      <Typography.Body16>{label}</Typography.Body16>
-      <Input {...inputProps} />
+      <Typography.Body16 variant={error ? 'danger' : 'primary'}>
+        {label}
+      </Typography.Body16>
+      <Input error={error} {...inputProps} />
     </View>
   );
 }
