@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {StyleSheet, TextInput, TextInputProps} from 'react-native';
 
-type Props = TextInputProps & {
+type Props = Omit<TextInputProps, 'onBlur' | 'onFocus'> & {
   error?: string;
 };
 
@@ -41,5 +41,6 @@ const styles = StyleSheet.create({
   },
   errorInput: {
     borderColor: '#D9435E',
+    color: '#D9435E',
   },
 });
