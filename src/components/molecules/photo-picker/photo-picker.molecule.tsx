@@ -19,13 +19,10 @@ export default function PhotoPicker({onImageSelected}: Props) {
   // #region PICK IMAGE HANDLER
   const pickImage = () => {
     launchImageLibrary({mediaType: 'photo', quality: 0.8}, response => {
-      console.log('Response:', response); // Debugging log
       if (response.didCancel) {
-        console.log('User cancelled image picker');
         return;
       }
       if (response.errorMessage) {
-        console.log('Error:', response.errorMessage);
         return;
       }
       if (
@@ -34,7 +31,6 @@ export default function PhotoPicker({onImageSelected}: Props) {
         response.assets[0].uri
       ) {
         const uri = response.assets[0].uri;
-        console.log('Image URI:', uri); // Debugging log
         setImageUri(uri);
         onImageSelected(uri);
       }
