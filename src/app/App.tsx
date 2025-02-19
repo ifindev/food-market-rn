@@ -2,8 +2,7 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, useColorScheme, View} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import UserGreetings from '../components/UserGreetings';
-import Categories from '../components/Categories';
+import LoginView from '@modules/login/login.view';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -15,8 +14,7 @@ function App(): React.JSX.Element {
   return (
     <SafeAreaView style={{...backgroundStyle, ...styles.safeAreaContainer}}>
       <View style={styles.container}>
-        <UserGreetings />
-        <Categories />
+        <LoginView />
       </View>
     </SafeAreaView>
   );
@@ -29,31 +27,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     height: '100%',
-    padding: 24,
-  },
-  userContainer: {
-    display: 'flex',
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  avatar: {
-    width: 36,
-    height: 36,
-    borderRadius: 50,
-  },
-  userGreetingContainer: {
-    display: 'flex',
-    flexDirection: 'column',
-    gap: 4,
-  },
-  greeting: {
-    color: '#787676',
-    fontSize: 14,
-  },
-  fullName: {
-    fontSize: 20,
-    fontWeight: 'bold',
+    backgroundColor: '#FAFAFC',
   },
 });
 
