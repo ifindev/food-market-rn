@@ -13,6 +13,7 @@ export default function LoginView() {
           <InputField
             label="Email Address"
             placeholder="Type your email address"
+            keyboardType="email-address"
           />
           <InputField
             secureTextEntry
