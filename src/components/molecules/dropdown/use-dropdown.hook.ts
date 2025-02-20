@@ -1,4 +1,4 @@
-import {Option} from '@models/common.model';
+import {Option} from '@typings/common.type';
 import {useEffect, useRef, useState} from 'react';
 import {Animated, FlatList, Keyboard} from 'react-native';
 import {View} from 'react-native-reanimated/lib/typescript/Animated';
