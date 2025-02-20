@@ -86,7 +86,6 @@ const cities: Option[] = [
   {label: 'Durham', value: 'dur'},
   {label: 'Fort Wayne', value: 'fw'},
   {label: 'St. Petersburg', value: 'spb'},
-  {label: 'Laredo', value: 'lar'},
 ];
 
 export default function RegisterAddressView() {
