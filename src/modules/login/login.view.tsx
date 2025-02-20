@@ -3,8 +3,11 @@ import {StyleSheet, View} from 'react-native';
 import Button from '@components/atoms/button/button.atom';
 import Header from '@components/molecules/header/header.molecule';
 import InputField from '@components/molecules/input-field/input-field.molecule';
+import useLoginViewModel from './login.view-model';
 
 export default function LoginView() {
+  const {handleClickRegister} = useLoginViewModel();
+
   return (
     <View style={styles.container}>
       <Header title="Sign In" subtitle="Find your best meal ever" />
@@ -23,7 +26,11 @@ export default function LoginView() {
         </View>
         <View style={styles.buttonsContainer}>
           <Button text="Sign In" />
-          <Button variant="secondary" text="Create New Account" />
+          <Button
+            variant="secondary"
+            text="Create New Account"
+            onPress={handleClickRegister}
+          />
         </View>
       </View>
     </View>

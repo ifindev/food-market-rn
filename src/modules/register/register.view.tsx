@@ -1,18 +1,24 @@
-import React, {useState} from 'react';
+import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import Button from '@components/atoms/button/button.atom';
 import Header from '@components/molecules/header/header.molecule';
 import InputField from '@components/molecules/input-field/input-field.molecule';
 import ErrorCard from '@components/molecules/error-card/error-card.molecule';
 import PhotoPicker from '@components/molecules/photo-picker/photo-picker.molecule';
+import useRegisterViewModel from './register.view-model';
 
 export default function RegisterView() {
-  const [error, setError] = useState('');
+  const {handlePressBack, handlePressContinue, error, setError} =
+    useRegisterViewModel();
 
   return (
     <View style={styles.container}>
       {error && <ErrorCard onClose={() => setError('')} message={error} />}
-      <Header title="Sign Up" subtitle="Register and eat" onBack={() => {}} />
+      <Header
+        title="Sign Up"
+        subtitle="Register and eat"
+        onBack={handlePressBack}
+      />
       <View style={styles.formContainer}>
         <PhotoPicker onImageSelected={() => {}} />
         <View style={styles.inputFieldsContainer}>
@@ -28,10 +34,7 @@ export default function RegisterView() {
             placeholder="Type your password"
           />
         </View>
-        <Button
-          text="Continue"
-          onPress={() => setError('Email has already been registered.')}
-        />
+        <Button text="Continue" onPress={handlePressContinue} />
       </View>
     </View>
   );

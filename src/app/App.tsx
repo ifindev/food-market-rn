@@ -2,7 +2,8 @@ import React from 'react';
 import {SafeAreaView, StyleSheet, useColorScheme, View} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
-import RegisterAddressView from '@modules/register-address/register-address.view';
+import {NavigationContainer} from '@react-navigation/native';
+import AuthNavigator from './navigation/auth.navigation';
 
 function App(): React.JSX.Element {
   const isDarkMode = useColorScheme() === 'dark';
@@ -12,11 +13,13 @@ function App(): React.JSX.Element {
   };
 
   return (
-    <SafeAreaView style={{...backgroundStyle, ...styles.safeAreaContainer}}>
-      <View style={styles.container}>
-        <RegisterAddressView />
-      </View>
-    </SafeAreaView>
+    <NavigationContainer>
+      <SafeAreaView style={[backgroundStyle, styles.safeAreaContainer]}>
+        <View style={styles.container}>
+          <AuthNavigator />
+        </View>
+      </SafeAreaView>
+    </NavigationContainer>
   );
 }
 
