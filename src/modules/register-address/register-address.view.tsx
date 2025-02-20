@@ -4,7 +4,7 @@ import Button from '@components/atoms/button/button.atom';
 import Header from '@components/molecules/header/header.molecule';
 import InputField from '@components/molecules/input-field/input-field.molecule';
 import Dropdown from '@components/molecules/dropdown/dropdown.molecule';
-import {Option} from '@models/common.model';
+import {Option} from '@typings/common.type';
 
 // TODO: GET THIS FROM API LATER
 const cities: Option[] = [
@@ -86,7 +86,6 @@ const cities: Option[] = [
   {label: 'Durham', value: 'dur'},
   {label: 'Fort Wayne', value: 'fw'},
   {label: 'St. Petersburg', value: 'spb'},
-  {label: 'Laredo', value: 'lar'},
 ];
 
 export default function RegisterAddressView() {
