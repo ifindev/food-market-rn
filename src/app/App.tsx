@@ -1,5 +1,5 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, useColorScheme, View} from 'react-native';
+import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
 
 import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
@@ -15,9 +15,7 @@ function App(): React.JSX.Element {
   return (
     <NavigationContainer>
       <SafeAreaView style={[backgroundStyle, styles.safeAreaContainer]}>
-        <View style={styles.container}>
-          <AuthNavigator />
-        </View>
+        <AuthNavigator />
       </SafeAreaView>
     </NavigationContainer>
   );
@@ -26,11 +24,7 @@ function App(): React.JSX.Element {
 const styles = StyleSheet.create({
   safeAreaContainer: {
     flex: 1,
-  },
-  container: {
-    flex: 1,
-    height: '100%',
-    backgroundColor: '#FAFAFC',
+    backgroundColor: 'white',
   },
 });
 
