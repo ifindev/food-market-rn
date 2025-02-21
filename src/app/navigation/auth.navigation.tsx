@@ -21,6 +21,7 @@ export default function AuthNavigator() {
           key={route.name}
           name={route.name}
           component={route.component}
+          options={route.options}
         />
       ))}
     </AuthStack.Navigator>
