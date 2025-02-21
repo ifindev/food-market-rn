@@ -12,7 +12,7 @@ const ProtectedStack = createNativeStackNavigator<ProtectedStackParamList>();
 
 export default function ProtectedNavigator() {
   return (
-    <ProtectedStack.Navigator>
+    <ProtectedStack.Navigator screenOptions={{headerShown: false}}>
       {protectedRoutes.map(route => (
         <ProtectedStack.Screen
           key={route.name}
