@@ -4,11 +4,13 @@ import registerAddressRoute from '@modules/auth/register-address/register-addres
 import registerRoute from '@modules/auth/register/register.route';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {AppAuthRoute, AuthStackParamList} from '@typings/navigation.type';
+import registerSuccessRoute from '@modules/auth/register-success/register-success.route';
 
 const authRoutes: AppAuthRoute[] = [
   loginRoute,
   registerRoute,
   registerAddressRoute,
+  registerSuccessRoute,
 ];
 
 const AuthStack = createNativeStackNavigator<AuthStackParamList>();

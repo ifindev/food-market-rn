@@ -1,18 +1,19 @@
 import React from 'react';
-import homeRoute from '@modules/main/home/home.route';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   AppProtectedRoute,
   ProtectedStackParamList,
 } from '@typings/navigation.type';
+import TabNavigator from './tabs.navigation';
 
-const protectedRoutes: AppProtectedRoute[] = [homeRoute];
+const protectedRoutes: AppProtectedRoute[] = [];
 
 const ProtectedStack = createNativeStackNavigator<ProtectedStackParamList>();
 
 export default function ProtectedNavigator() {
   return (
     <ProtectedStack.Navigator screenOptions={{headerShown: false}}>
+      <ProtectedStack.Screen name="MainApp" component={TabNavigator} />
       {protectedRoutes.map(route => (
         <ProtectedStack.Screen
           key={route.name}
