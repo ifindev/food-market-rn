@@ -1,5 +1,5 @@
 import React from 'react';
-import homeRoute from '@modules/protected/home/home.route';
+import homeRoute from '@modules/main/home/home.route';
 import {createNativeStackNavigator} from '@react-navigation/native-stack';
 import {
   AppProtectedRoute,
