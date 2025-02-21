@@ -12,6 +12,7 @@ import Button from '@components/atoms/button/button.atom';
 import Header from '@components/molecules/header/header.molecule';
 import InputField from '@components/molecules/input-field/input-field.molecule';
 import useLoginViewModel from './login.view-model';
+import authStore from '@stores/auth.store';
 
 export default function LoginView() {
   const {handleClickRegister} = useLoginViewModel();
@@ -40,7 +41,7 @@ export default function LoginView() {
               />
             </View>
             <View style={styles.buttonsContainer}>
-              <Button text="Sign In" />
+              <Button text="Sign In" onPress={authStore.actions.login} />
               <Button
                 variant="secondary"
                 text="Create New Account"

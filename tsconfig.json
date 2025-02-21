@@ -6,7 +6,8 @@
       "@components/*": ["src/components/*"],
       "@modules/*": ["src/modules/*"],
       "@utils/*": ["src/utils/*"],
-      "@typings/*": ["src/typings/*"]
+      "@typings/*": ["src/typings/*"],
+      "@stores/*": ["src/stores/*"]
     }
   }
 }

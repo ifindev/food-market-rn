@@ -1,21 +1,19 @@
 import React from 'react';
-import {SafeAreaView, StyleSheet, useColorScheme} from 'react-native';
+import {SafeAreaView, StyleSheet} from 'react-native';
 
-import {Colors} from 'react-native/Libraries/NewAppScreen';
 import {NavigationContainer} from '@react-navigation/native';
 import AuthNavigator from './navigation/auth.navigation';
+import {useSnapshot} from 'valtio';
+import authStore from '@stores/auth.store';
+import ProtectedNavigator from './navigation/protected.navigation';
 
 function App(): React.JSX.Element {
-  const isDarkMode = useColorScheme() === 'dark';
-
-  const backgroundStyle = {
-    backgroundColor: isDarkMode ? Colors.darker : Colors.lighter,
-  };
+  const {token} = useSnapshot(authStore.state);
 
   return (
     <NavigationContainer>
-      <SafeAreaView style={[backgroundStyle, styles.safeAreaContainer]}>
-        <AuthNavigator />
+      <SafeAreaView style={styles.safeAreaContainer}>
+        {token ? <ProtectedNavigator /> : <AuthNavigator />}
       </SafeAreaView>
     </NavigationContainer>
   );

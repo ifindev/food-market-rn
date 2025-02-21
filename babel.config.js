@@ -10,6 +10,7 @@ module.exports = {
           '@modules': './src/modules',
           '@utils': './src/utils',
           '@typings': './src/typings',
+          '@stores': './src/stores',
         },
       },
     ],
