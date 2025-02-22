@@ -3,7 +3,6 @@ import {StackNavigationProp} from '@react-navigation/stack';
 import {Option} from '@typings/common.type';
 import {AuthStackParamList} from '@typings/navigation.type';
 import {useState} from 'react';
-import {Alert} from 'react-native';
 
 // TODO: GET THIS FROM API LATER
 const cities: Option[] = [
@@ -92,7 +91,8 @@ export default function useRegisterAddressViewModel() {
   const navigation = useNavigation<StackNavigationProp<AuthStackParamList>>();
   // #endregion
 
-  // #region CITY SELECTION
+  // #region STATES
+  const [isLoading, setIsLoading] = useState(false);
   const [selectedCity, setSelectedCity] = useState<Option | undefined>(
     undefined,
   );
@@ -104,14 +104,19 @@ export default function useRegisterAddressViewModel() {
   };
 
   const handlePressSignUp = () => {
-    Alert.alert('Siging you up...');
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false);
+      navigation.replace('RegisterSuccess');
+    }, 3000);
   };
   // #endregion
   return {
     handlePressBack,
     handlePressSignUp,
+    setSelectedCity,
     cities,
     selectedCity,
-    setSelectedCity,
+    isLoading,
   };
 }

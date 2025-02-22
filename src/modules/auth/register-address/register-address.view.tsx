@@ -13,14 +13,16 @@ import InputField from '@components/molecules/input-field/input-field.molecule';
 import Dropdown from '@components/molecules/dropdown/dropdown.molecule';
 import useRegisterAddressViewModel from './register-address.view-model';
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import LoadingOverlay from '@components/molecules/loading-overlay/loading-overlay.molecule';
 
 export default function RegisterAddressView() {
   const {
     handlePressBack,
     handlePressSignUp,
-    cities,
-    selectedCity,
     setSelectedCity,
+    cities,
+    isLoading,
+    selectedCity,
   } = useRegisterAddressViewModel();
 
   return (
@@ -62,6 +64,7 @@ export default function RegisterAddressView() {
           </View>
         </KeyboardAwareScrollView>
       </TouchableWithoutFeedback>
+      <LoadingOverlay visible={isLoading} message="Creating your account..." />
     </KeyboardAvoidingView>
   );
 }
