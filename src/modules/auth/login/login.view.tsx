@@ -12,10 +12,11 @@ import Button from '@components/atoms/button/button.atom';
 import Header from '@components/molecules/header/header.molecule';
 import InputField from '@components/molecules/input-field/input-field.molecule';
 import useLoginViewModel from './login.view-model';
-import authStore from '@stores/auth.store';
+import LoadingOverlay from '@components/molecules/loading-overlay/loading-overlay.molecule';
 
 export default function LoginView() {
-  const {handleClickRegister} = useLoginViewModel();
+  const {handleClickRegister, handleClickLogin, isLoading} =
+    useLoginViewModel();
 
   return (
     <KeyboardAvoidingView
@@ -41,7 +42,7 @@ export default function LoginView() {
               />
             </View>
             <View style={styles.buttonsContainer}>
-              <Button text="Sign In" onPress={authStore.actions.login} />
+              <Button text="Sign In" onPress={handleClickLogin} />
               <Button
                 variant="secondary"
                 text="Create New Account"
@@ -51,6 +52,10 @@ export default function LoginView() {
           </View>
         </ScrollView>
       </TouchableWithoutFeedback>
+      <LoadingOverlay
+        visible={isLoading}
+        message="Signing you in securely..."
+      />
     </KeyboardAvoidingView>
   );
 }
