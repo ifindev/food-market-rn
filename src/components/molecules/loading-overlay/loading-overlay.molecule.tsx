@@ -16,7 +16,7 @@ export default function LoadingOverlay({
       <View style={styles.overlay}>
         <View style={styles.container}>
           <ActivityIndicator size="large" color="#FFC700" />
-          <Typography.Body14>{message}</Typography.Body14>
+          <Typography.Body14 style={styles.text}>{message}</Typography.Body14>
         </View>
       </View>
     </Modal>
@@ -38,5 +38,8 @@ const styles = StyleSheet.create({
     maxWidth: 200,
     flexDirection: 'column',
     gap: 12,
+  },
+  text: {
+    textAlign: 'center',
   },
 });
