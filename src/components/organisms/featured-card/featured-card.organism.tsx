@@ -1,8 +1,8 @@
-import React, {useMemo} from 'react';
+import React from 'react';
 import Typography from '@components/atoms/typography/typography.atom';
 import {Image, ImageProps, StyleSheet, View} from 'react-native';
-import Star from '@components/atoms/icons/star.icon';
 import {isURL} from '@utils/util';
+import Rating from '../../molecules/rating/rating.molecule';
 
 export type FeaturedCardProps = {
   name: string;
@@ -11,23 +11,6 @@ export type FeaturedCardProps = {
 };
 
 export default function FeaturedCard({name, image, rating}: FeaturedCardProps) {
-  const starRatings = useMemo(() => {
-    const stars = [];
-    const roundedRating =
-      rating > Math.floor(rating) + 0.5
-        ? Math.ceil(rating)
-        : Math.floor(rating);
-    for (let i = 0; i < 5; i++) {
-      if (i < roundedRating) {
-        stars.push(<Star />);
-      } else {
-        stars.push(<Star fill="#ECECEC" />);
-      }
-    }
-
-    return stars;
-  }, [rating]);
-
   return (
     <View style={styles.card}>
       {isURL(image) ? (
@@ -41,12 +24,7 @@ export default function FeaturedCard({name, image, rating}: FeaturedCardProps) {
       )}
       <View style={styles.textsContainer}>
         <Typography.Body16>{name}</Typography.Body16>
-        <View style={styles.ratingContainer}>
-          <View style={styles.starRatingContainer}>
-            {starRatings.map(star => star)}
-          </View>
-          <Typography variant="secondary">{rating}</Typography>
-        </View>
+        <Rating rating={rating} />
       </View>
     </View>
   );
@@ -73,15 +51,5 @@ const styles = StyleSheet.create({
   textsContainer: {
     padding: 12,
     gap: 6,
-  },
-  ratingContainer: {
-    gap: 4,
-    flexDirection: 'row',
-    alignItems: 'center',
-  },
-  starRatingContainer: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 2,
   },
 });

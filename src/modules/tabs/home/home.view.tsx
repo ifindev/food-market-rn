@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import Header from '@components/molecules/header/header.molecule';
-import FeaturedCarousel from '@components/organisms/featured-carousel.organism';
+import FeaturedCarousel from '@components/organisms/featured-carousel/featured-carousel.organism';
 import Tab from '@components/molecules/tab/tab.molecule';
 
 export default function HomeView() {

@@ -2,7 +2,7 @@
 import React from 'react';
 import FeaturedCard, {
   FeaturedCardProps,
-} from '@components/molecules/featured-card/featured-card.molecule';
+} from '@components/organisms/featured-card/featured-card.organism';
 import {FlatList, Pressable, StyleSheet, View} from 'react-native';
 
 type CarouselItem = FeaturedCardProps & {
