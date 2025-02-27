@@ -10,32 +10,38 @@ type Props = {
 
 export default function Tab({items, selected, onSelect}: Props) {
   return (
-    <FlatList
-      contentContainerStyle={styles.container}
-      data={items}
-      horizontal
-      showsHorizontalScrollIndicator={false}
-      keyExtractor={item => item}
-      renderItem={({item}) => (
-        <TouchableOpacity onPress={() => onSelect(item)} style={styles.tabItem}>
-          <Typography.Body16
-            variant={item === selected ? 'primary' : 'secondary'}>
-            {item}
-          </Typography.Body16>
-          {selected === item && <View style={styles.indicator} />}
-        </TouchableOpacity>
-      )}
-    />
+    <View style={styles.container}>
+      <FlatList
+        contentContainerStyle={styles.scrollContainer}
+        data={items}
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        keyExtractor={item => item}
+        renderItem={({item}) => (
+          <TouchableOpacity
+            onPress={() => onSelect(item)}
+            style={styles.tabItem}>
+            <Typography.Body16
+              variant={item === selected ? 'primary' : 'secondary'}>
+              {item}
+            </Typography.Body16>
+            {selected === item && <View style={styles.indicator} />}
+          </TouchableOpacity>
+        )}
+      />
+    </View>
   );
 }
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
-    paddingHorizontal: 24,
-    backgroundColor: 'transparent',
+    width: '100%',
     borderBottomWidth: 1,
     borderBottomColor: '#F2F2F2',
+  },
+  scrollContainer: {
+    paddingHorizontal: 24,
+    backgroundColor: 'transparent',
     gap: 24,
     height: 34,
   },
