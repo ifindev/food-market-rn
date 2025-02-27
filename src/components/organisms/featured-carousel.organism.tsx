@@ -38,7 +38,7 @@ export default function FeaturedCarousel({data, onClick}: Props) {
 
 const styles = StyleSheet.create({
   container: {
-    padding: 24,
+    paddingHorizontal: 24,
   },
   separator: {
     width: 24,
