@@ -1,7 +1,8 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {Alert, StyleSheet, View} from 'react-native';
 import Header from '@components/molecules/header/header.molecule';
 import FeaturedCarousel from '@components/organisms/featured-carousel.organism';
+import Tab from '@components/molecules/tab/tab.molecule';
 
 export default function HomeView() {
   const featured = [
@@ -31,6 +32,9 @@ export default function HomeView() {
     },
   ];
 
+  const tabs: string[] = ['New Taste', 'Popular', 'Recommended'];
+  const [selectedTab, setSelectedTab] = useState(tabs[0]);
+
   return (
     <View style={styles.container}>
       <Header
@@ -42,6 +46,9 @@ export default function HomeView() {
         data={featured}
         onClick={item => Alert.alert(`Selected ${item.name}`)}
       />
+      <View style={styles.menuList}>
+        <Tab items={tabs} selected={selectedTab} onSelect={setSelectedTab} />
+      </View>
     </View>
   );
 }
@@ -52,5 +59,10 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 24,
     backgroundColor: '#FAFAFC',
+  },
+  menuList: {
+    flex: 1,
+    paddingTop: 16,
+    backgroundColor: 'white',
   },
 });
