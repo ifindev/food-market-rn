@@ -44,6 +44,64 @@ export default function HomeView() {
     },
   ];
 
+  const newTaste = [
+    {
+      id: '3',
+      name: 'Karee Special',
+      rating: 4.3,
+      image: require('../../../assets/kari.png'),
+      price: 'IDR 289.000',
+    },
+    {
+      id: '4',
+      name: 'Es Tongtong',
+      rating: 4.9,
+      image: require('../../../assets/es-tongtong.png'),
+      price: 'IDR 289.000',
+    },
+    {
+      id: '5',
+      name: 'Salad',
+      rating: 4.9,
+      image: require('../../../assets/salad.png'),
+      price: 'IDR 289.000',
+    },
+  ];
+
+  const popular = [
+    {
+      id: '2',
+      name: 'Burger Tamago',
+      rating: 4.7,
+      image: require('../../../assets/burger.png'),
+      price: 'IDR 289.000',
+    },
+    {
+      id: '3',
+      name: 'Karee Special',
+      rating: 4.3,
+      image: require('../../../assets/kari.png'),
+      price: 'IDR 289.000',
+    },
+  ];
+
+  const recommended = [
+    {
+      id: '4',
+      name: 'Es Tongtong',
+      rating: 4.9,
+      image: require('../../../assets/es-tongtong.png'),
+      price: 'IDR 289.000',
+    },
+    {
+      id: '5',
+      name: 'Salad',
+      rating: 4.9,
+      image: require('../../../assets/salad.png'),
+      price: 'IDR 289.000',
+    },
+  ];
+
   const tabs: string[] = ['New Taste', 'Popular', 'Recommended'];
   const [selectedTab, setSelectedTab] = useState(tabs[0]);
 
@@ -60,10 +118,24 @@ export default function HomeView() {
       />
       <View style={styles.tabContainer}>
         <Tab items={tabs} selected={selectedTab} onSelect={setSelectedTab} />
-        <FoodList
-          foods={menu}
-          onClick={item => Alert.alert(`Selected ${item.name}`)}
-        />
+        {selectedTab === 'New Taste' && (
+          <FoodList
+            foods={newTaste}
+            onClick={item => Alert.alert(`Selected ${item.name}`)}
+          />
+        )}
+        {selectedTab === 'Popular' && (
+          <FoodList
+            foods={popular}
+            onClick={item => Alert.alert(`Selected ${item.name}`)}
+          />
+        )}
+        {selectedTab === 'Recommended' && (
+          <FoodList
+            foods={recommended}
+            onClick={item => Alert.alert(`Selected ${item.name}`)}
+          />
+        )}
       </View>
     </View>
   );
