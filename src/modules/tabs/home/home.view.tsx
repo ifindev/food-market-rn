@@ -38,12 +38,10 @@ export default function HomeView() {
         subtitle="Let's get some food"
         profileImage="https://images.unsplash.com/photo-1534528741775-53994a69daeb?q=80&w=150&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
       />
-      <View style={styles.featuredContainer}>
-        <FeaturedCarousel
-          data={featured}
-          onClick={item => Alert.alert(`Selected ${item.name}`)}
-        />
-      </View>
+      <FeaturedCarousel
+        data={featured}
+        onClick={item => Alert.alert(`Selected ${item.name}`)}
+      />
     </View>
   );
 }
@@ -54,9 +52,5 @@ const styles = StyleSheet.create({
     flexDirection: 'column',
     gap: 24,
     backgroundColor: '#FAFAFC',
-  },
-  featuredContainer: {
-    flex: 1,
-    padding: 24,
   },
 });

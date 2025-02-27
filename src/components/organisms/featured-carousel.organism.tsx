@@ -17,6 +17,7 @@ type Props = {
 export default function FeaturedCarousel({data, onClick}: Props) {
   return (
     <FlatList
+      contentContainerStyle={styles.container}
       data={data}
       horizontal
       showsHorizontalScrollIndicator={false}
@@ -36,6 +37,9 @@ export default function FeaturedCarousel({data, onClick}: Props) {
 }
 
 const styles = StyleSheet.create({
+  container: {
+    padding: 24,
+  },
   separator: {
     width: 24,
   },
